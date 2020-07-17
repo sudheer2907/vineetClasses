@@ -88,8 +88,11 @@ public abstract class WebDriverFactory {
      * Close window.
      */
     public static void closeWindow() {
-        getDriver().close();
-        getDriver().quit();
+        if (driver != null) {
+            getDriver().close();
+            getDriver().quit();
+            WebDriverFactory.driver = null;
+        }
     }
 
     /**
@@ -258,8 +261,9 @@ public abstract class WebDriverFactory {
     /**
      * Switch into frame.
      *
-     * @param driver
      * @param elementLocator
+     *            - web element.
+     * @author sudheer.singh
      */
     public static void switchToFrameInDom(WebElement elementLocator) {
         driver.switchTo().frame(elementLocator);
