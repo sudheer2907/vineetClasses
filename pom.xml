@@ -14,7 +14,6 @@
 		<jdk.level>1.8</jdk.level>
 		<checksyle.rule.file>code-compliances/checkstyle-rules.xml</checksyle.rule.file>
 		<checkstyle.failure>true</checkstyle.failure>
-		<run.ui.tests>false</run.ui.tests>
 		<cpd.skip>false</cpd.skip>
         <checkstyle.check.skip>false</checkstyle.check.skip>
         <pmd.check.skip>false</pmd.check.skip>
