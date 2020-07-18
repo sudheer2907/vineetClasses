@@ -1,4 +1,4 @@
-package oneframe.cucumber.projectone.stepdefinitions.hooks;
+package oneframe.cucumber.stepdefinitions.seleniumeasy.hooks;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package com.oneframe.cucumber.projectone.pages;
+package com.oneframe.cucumber.seleniumeasy.pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;

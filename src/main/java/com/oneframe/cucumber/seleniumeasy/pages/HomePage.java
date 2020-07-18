@@ -1,4 +1,4 @@
-package com.oneframe.cucumber.projectone.pages;
+package com.oneframe.cucumber.seleniumeasy.pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -16,9 +16,6 @@ public class HomePage {
     @FindBy(xpath = "//a[@class='dropdown-toggle'][contains(text(),'Input Forms')]")
     private WebElement tabInputForms;
 
-    @FindBy(xpath = "//a[@class='dropdown-toggle'][contains(text(),'Progress Bars')]")
-    private WebElement tabProgressBars;
-
     /**
      * Click on tab.
      *
@@ -27,13 +24,11 @@ public class HomePage {
      * @author sudheer.singh
      */
     public void clickonTab(String tabString) {
-        System.out.println("tabString is " + tabString);
+        System.out.println("Tab to be clicked is " + tabString);
         switch (tabString) {
         case "Input Forms":
+            WebDriverFactory.waitForAnElementToBeVisible(tabInputForms, 30);
             WebDriverFactory.clickWebElement(tabInputForms);
-            break;
-        case "Progress Bars":
-            WebDriverFactory.clickWebElement(tabProgressBars);
             break;
         default:
             Assert.fail("Wrong Sub tab name is provided.");

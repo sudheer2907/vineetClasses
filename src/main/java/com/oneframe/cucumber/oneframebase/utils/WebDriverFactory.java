@@ -203,7 +203,7 @@ public abstract class WebDriverFactory {
      * @author sudheer.singh
      */
     public static void waitForAnElementToBeVisible(WebElement element, int timeOut) {
-        WebDriverWait wait = new WebDriverWait(driver, timeOut);
+        WebDriverWait wait = new WebDriverWait(getDriver(), timeOut);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
