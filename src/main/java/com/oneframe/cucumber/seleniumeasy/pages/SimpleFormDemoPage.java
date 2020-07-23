@@ -1,118 +1,122 @@
 package com.oneframe.cucumber.seleniumeasy.pages;
 
-import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.oneframe.cucumber.oneframebase.utils.WebDriverFactory;
 
 public class SimpleFormDemoPage {
+	WebDriver driver;
 
-    public SimpleFormDemoPage() {
-        PageFactory.initElements(WebDriverFactory.getDriver(), this);
-    }
+	public SimpleFormDemoPage() {
+		PageFactory.initElements(WebDriverFactory.getDriver(), this);
+	}
 
-    @FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'Simple Form Demo')]")
-    private WebElement subTabSimpleFormDemo;
+	@FindBy(xpath = "//a[@class='dropdown-toggle'][contains(text(),'Input Forms')]")
+	private WebElement tabInputForms;
 
-    @FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'Checkbox Demo')]")
-    private WebElement subTabCheckBoxDemo;
+	@FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'Simple Form Demo')]")
+	private WebElement subTabSimpleFormDemo;
 
-    @FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'Radio Buttons Demo')]")
-    private WebElement subTabRadioButtonDemo;
+	@FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'Radio Buttons Demo')]")
+	private WebElement subTabRadioButtonDemo;
 
-    @FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'Select Dropdown List')]")
-    private WebElement subTabSelectDropDownList;
+	
 
-    @FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'Input Form Submit')]")
-    private WebElement subTabInputFormSubmit;
+	
 
-    @FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'Ajax Form Submit')]")
-    private WebElement subTabAjaxFormSubmit;
+	@FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'JQuery Select dropdown')]")
+	private WebElement subTabJQuerySelectDropdown;
 
-    @FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'JQuery Select dropdown')]")
-    private WebElement subTabJQuerySelectDropdown;
+	@FindBy(xpath = "//a[@class='at-cv-button at-cv-lightbox-yesno at-cm-no-button']")
+	private WebElement acceptAnAlert;
 
-    @FindBy(xpath = "//a[@class='at-cv-button at-cv-lightbox-yesno at-cm-no-button']")
-    private WebElement acceptAnAlert;
+	@FindBy(xpath = "//input[@id='user-message']")
+	private WebElement txtBoxEnterMessage;
 
-    @FindBy(xpath = "//input[@id='user-message']")
-    private WebElement txtBoxEnterMessage;
+	@FindBy(xpath = "//button[contains(text(),'Show Message')]")
+	private WebElement buttonShowMessage;
 
-    @FindBy(xpath = "//button[contains(text(),'Show Message')]")
-    private WebElement buttonShowMessage;
+	@FindBy(xpath = "//label[contains(text(),'Your Message:')]/following-sibling::span")
+	private WebElement labelGetShowMessageOutput;
 
-    @FindBy(xpath = "//label[contains(text(),'Your Message:')]/following-sibling::span")
-    private WebElement labelGetShowMessageOutput;
+	@FindBy(xpath = "//div[@class='panel-heading']")
+	private WebElement SingleinputField;
 
-    public void acceptAnAlert() {
-        WebDriverFactory.waitForAnElementToBeVisible(acceptAnAlert, 20);
-        WebDriverFactory.clickWebElement(acceptAnAlert);
-    }
+	public void acceptAnAlert() {
+		WebDriverFactory.waitForAnElementToBeVisible(acceptAnAlert, 30);
+		WebDriverFactory.clickWebElement(acceptAnAlert);
+	}
 
-    /**
-     * Click on subtab.
-     *
-     * @param subTabString
-     *            - sub tab name.
-     * @author sudheer.singh
-     */
-    public void clickOnSubtab(String subTabString) {
-        switch (subTabString) {
-        case "Simple Form Demo":
-            WebDriverFactory.clickWebElement(subTabSimpleFormDemo);
-            break;
-        case "Checkbox Demo":
-            WebDriverFactory.clickWebElement(subTabCheckBoxDemo);
-            break;
-        case "Radio Buttons Demo":
-            WebDriverFactory.clickWebElement(subTabRadioButtonDemo);
-            break;
-        case "Select Dropdown List":
-            WebDriverFactory.clickWebElement(subTabSelectDropDownList);
-            break;
-        case "Input Form Submit":
-            WebDriverFactory.clickWebElement(subTabInputFormSubmit);
-            break;
-        case "Ajax Form Submit":
-            WebDriverFactory.clickWebElement(subTabAjaxFormSubmit);
-            break;
-        case "JQuery Select dropdown":
-            WebDriverFactory.clickWebElement(subTabJQuerySelectDropdown);
-            break;
-        default:
-            Assert.fail("Wrong Sub tab name is provided.");
-        }
-    }
+	/**
+	 * Click on subtab.
+	 *
+	 * @param subTabString - sub tab name.
+	 * @author sudheer.singh
+	 */
+	public void clickOntab() {
+		WebDriverFactory.waitForAnElementToBeVisible(tabInputForms, 50);
 
-    /**
-     * Enter any text into Enter message textbox.
-     *
-     * @param arg
-     *            - text to be entered into message textbox.
-     * @author sudheer.singh
-     */
-    public void enterTextIntoMessageBox(String arg) {
-        WebDriverFactory.sendKeys(txtBoxEnterMessage, arg);
-    }
+		tabInputForms.click();
+	}
 
-    /**
-     * Click show message button.
-     *
-     * @author sudheer.singh
-     */
-    public void clickShowMessageButton() {
-        WebDriverFactory.clickWebElement(buttonShowMessage);
-    }
+	/**
+	 * Click on subtab.
+	 *
+	 * @param subTabString - sub tab name.
+	 * @author sudheer.singh
+	 */
+	public void clickOnSubtab() {
+		WebDriverFactory.waitForAnElementToBeVisible(subTabSimpleFormDemo, 50);
+		subTabSimpleFormDemo.click();
+	}
 
-    /**
-     * Get text message entered into the enter message text box.
-     *
-     * @author sudheer.singh
-     */
-    public String getTextShowMessage() {
-        WebDriverFactory.waitForAnElementToBeVisible(labelGetShowMessageOutput, 4);
-        return labelGetShowMessageOutput.getText();
-    }
+	/**
+	 * Enter any text into Enter message textbox.
+	 *
+	 * @param arg - text to be entered into message textbox.
+	 * @author sudheer.singh
+	 */
+	/**
+	 * Click on subtab.
+	 *
+	 * @author sudheer.singh
+	 */
+	public void VerifySmimpleDemoPage() {
+
+		String DisplayText = SingleinputField.getText();
+		System.out.println(DisplayText);
+		Assert.assertEquals(DisplayText, "Menu List", "You are on Simple From demo page");
+		Assert.assertEquals(DisplayText, "Menu List");
+
+		Assert.assertEquals(DisplayText, "Menu List", "Menu List\",\"You are on Simple From demo page");
+
+	}
+
+	public void enterTextIntoMessageBox(String arg) {
+		WebDriverFactory.sendKeys(txtBoxEnterMessage, arg);
+	}
+
+	/**
+	 * Click show message button.
+	 *
+	 * @author sudheer.singh
+	 */
+	public void clickShowMessageButton() {
+		WebDriverFactory.clickWebElement(buttonShowMessage);
+	}
+
+	/**
+	 * Get text message entered into the enter message text box.
+	 *
+	 * @author sudheer.singh
+	 */
+	public String getTextShowMessage() {
+		WebDriverFactory.waitForAnElementToBeVisible(labelGetShowMessageOutput, 4);
+		return labelGetShowMessageOutput.getText();
+	}
 }
