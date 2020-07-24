@@ -1,6 +1,5 @@
 package com.oneframe.cucumber.seleniumeasy.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,113 +9,102 @@ import org.testng.Assert;
 import com.oneframe.cucumber.oneframebase.utils.WebDriverFactory;
 
 public class SimpleFormDemoPage {
-	WebDriver driver;
+    WebDriver driver;
 
-	public SimpleFormDemoPage() {
-		PageFactory.initElements(WebDriverFactory.getDriver(), this);
-	}
+    public SimpleFormDemoPage() {
+        PageFactory.initElements(WebDriverFactory.getDriver(), this);
+    }
 
-	@FindBy(xpath = "//a[@class='dropdown-toggle'][contains(text(),'Input Forms')]")
-	private WebElement tabInputForms;
+    @FindBy(xpath = "//a[@class='dropdown-toggle'][contains(text(),'Input Forms')]")
+    private WebElement tabInputForms;
 
-	@FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'Simple Form Demo')]")
-	private WebElement subTabSimpleFormDemo;
+    @FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'Simple Form Demo')]")
+    private WebElement subTabSimpleFormDemo;
 
-	@FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'Radio Buttons Demo')]")
-	private WebElement subTabRadioButtonDemo;
+    @FindBy(xpath = "//a[@class='at-cv-button at-cv-lightbox-yesno at-cm-no-button']")
+    private WebElement acceptAnAlert;
 
-	
+    @FindBy(xpath = "//input[@id='user-message']")
+    private WebElement txtBoxEnterMessage;
 
-	
+    @FindBy(xpath = "//button[contains(text(),'Show Message')]")
+    private WebElement buttonShowMessage;
 
-	@FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'JQuery Select dropdown')]")
-	private WebElement subTabJQuerySelectDropdown;
+    @FindBy(xpath = "//label[contains(text(),'Your Message:')]/following-sibling::span")
+    private WebElement labelGetShowMessageOutput;
 
-	@FindBy(xpath = "//a[@class='at-cv-button at-cv-lightbox-yesno at-cm-no-button']")
-	private WebElement acceptAnAlert;
+    @FindBy(xpath = "//div[@class='panel-heading']")
+    private WebElement singleinputField;
 
-	@FindBy(xpath = "//input[@id='user-message']")
-	private WebElement txtBoxEnterMessage;
+    public void acceptAnAlert() {
+        WebDriverFactory.waitForAnElementToBeVisible(acceptAnAlert, 30);
+        WebDriverFactory.clickWebElement(acceptAnAlert);
+    }
 
-	@FindBy(xpath = "//button[contains(text(),'Show Message')]")
-	private WebElement buttonShowMessage;
+    /**
+     * Click on subtab.
+     *
+     * @author sudheer.singh
+     */
+    public void clickOntab() {
+        WebDriverFactory.waitForAnElementToBeVisible(tabInputForms, 50);
 
-	@FindBy(xpath = "//label[contains(text(),'Your Message:')]/following-sibling::span")
-	private WebElement labelGetShowMessageOutput;
+        tabInputForms.click();
+    }
 
-	@FindBy(xpath = "//div[@class='panel-heading']")
-	private WebElement SingleinputField;
+    /**
+     * Click on subtab.
+     *
+     * @author sudheer.singh
+     */
+    public void clickOnSubtab() {
+        WebDriverFactory.waitForAnElementToBeVisible(subTabSimpleFormDemo, 50);
+        subTabSimpleFormDemo.click();
+    }
 
-	public void acceptAnAlert() {
-		WebDriverFactory.waitForAnElementToBeVisible(acceptAnAlert, 30);
-		WebDriverFactory.clickWebElement(acceptAnAlert);
-	}
+    /**
+     * Enter any text into Enter message textbox.
+     *
+     * @param arg
+     *            - text to be entered into message textbox.
+     * @author sudheer.singh
+     */
+    /**
+     * Click on subtab.
+     *
+     * @author sudheer.singh
+     */
+    public void VerifySmimpleDemoPage() {
 
-	/**
-	 * Click on subtab.
-	 *
-	 * @param subTabString - sub tab name.
-	 * @author sudheer.singh
-	 */
-	public void clickOntab() {
-		WebDriverFactory.waitForAnElementToBeVisible(tabInputForms, 50);
+        String displayText = singleinputField.getText();
+        System.out.println(displayText);
+        Assert.assertEquals(displayText, "Menu List", "You are on Simple From demo page");
+        Assert.assertEquals(displayText, "Menu List");
 
-		tabInputForms.click();
-	}
+        Assert.assertEquals(displayText, "Menu List", "Menu List\",\"You are on Simple From demo page");
 
-	/**
-	 * Click on subtab.
-	 *
-	 * @param subTabString - sub tab name.
-	 * @author sudheer.singh
-	 */
-	public void clickOnSubtab() {
-		WebDriverFactory.waitForAnElementToBeVisible(subTabSimpleFormDemo, 50);
-		subTabSimpleFormDemo.click();
-	}
+    }
 
-	/**
-	 * Enter any text into Enter message textbox.
-	 *
-	 * @param arg - text to be entered into message textbox.
-	 * @author sudheer.singh
-	 */
-	/**
-	 * Click on subtab.
-	 *
-	 * @author sudheer.singh
-	 */
-	public void VerifySmimpleDemoPage() {
+    public void enterTextIntoMessageBox(String arg) {
+        WebDriverFactory.sendKeys(txtBoxEnterMessage, arg);
+    }
 
-		String DisplayText = SingleinputField.getText();
-		System.out.println(DisplayText);
-		Assert.assertEquals(DisplayText, "Menu List", "You are on Simple From demo page");
-		Assert.assertEquals(DisplayText, "Menu List");
+    /**
+     * Click show message button.
+     *
+     * @author sudheer.singh
+     */
+    public void clickShowMessageButton() {
+        WebDriverFactory.clickWebElement(buttonShowMessage);
+    }
 
-		Assert.assertEquals(DisplayText, "Menu List", "Menu List\",\"You are on Simple From demo page");
-
-	}
-
-	public void enterTextIntoMessageBox(String arg) {
-		WebDriverFactory.sendKeys(txtBoxEnterMessage, arg);
-	}
-
-	/**
-	 * Click show message button.
-	 *
-	 * @author sudheer.singh
-	 */
-	public void clickShowMessageButton() {
-		WebDriverFactory.clickWebElement(buttonShowMessage);
-	}
-
-	/**
-	 * Get text message entered into the enter message text box.
-	 *
-	 * @author sudheer.singh
-	 */
-	public String getTextShowMessage() {
-		WebDriverFactory.waitForAnElementToBeVisible(labelGetShowMessageOutput, 4);
-		return labelGetShowMessageOutput.getText();
-	}
+    /**
+     * Get text message entered into the enter message text box.
+     *
+     * @author sudheer.singh
+     */
+    public String getTextShowMessage() {
+        WebDriverFactory.waitForAnElementToBeVisible(labelGetShowMessageOutput, 4);
+        return labelGetShowMessageOutput.getText();
+    }
 }

@@ -7,39 +7,29 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.oneframe.cucumber.oneframebase.utils.WebDriverFactory;
 
-
-
-
-
 public class CheckboxDemoPgae {
 
-	WebDriver driver;
-	public CheckboxDemoPgae() {
-		PageFactory.initElements(WebDriverFactory.getDriver(), this);
-		
-	
+    WebDriver driver;
+
+    public CheckboxDemoPgae() {
+        PageFactory.initElements(WebDriverFactory.getDriver(), this);
+
+    }
+
+    @FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'Checkbox Demo')]")
+    private WebElement subTabCheckBoxDemo;
+
+    @FindBy(xpath = "//div[contains(text(),'Single Checkbox Demo')]")
+    private WebElement chekcboxPageText;
+
+    public void clickonCheckboxSubTab() {
+
+        WebDriverFactory.clickWebElement(subTabCheckBoxDemo);
+    }
+
+    public void verifyCheckboxPage() {
+        String checkboxPageTextToVerify = chekcboxPageText.getText();
+        System.out.println(checkboxPageTextToVerify);
+    }
+
 }
-	
-	@FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'Checkbox Demo')]")
-	private WebElement subTabCheckBoxDemo;
-	
-	@FindBy(xpath = "//div[contains(text(),'Single Checkbox Demo')]")
-	private WebElement chekcboxPageText;
-	
-	
-	public void clickonCheckboxSubTab() {
-		
-		WebDriverFactory.clickWebElement(subTabCheckBoxDemo);
-		}
-	
-	public void verifyCheckboxPage() {
-		String CheckboxPageTextToVerify = chekcboxPageText.getText();
-		System.out.println(CheckboxPageTextToVerify);
-	}
-	
-
-	}
-
-
-
-

@@ -8,29 +8,39 @@ import com.oneframe.cucumber.oneframebase.utils.WebDriverFactory;
 
 public class SelectDropdownListpage {
 
-	public SelectDropdownListpage() {
-		PageFactory.initElements(WebDriverFactory.getDriver(), this);
-	}
+    public SelectDropdownListpage() {
+        PageFactory.initElements(WebDriverFactory.getDriver(), this);
+    }
 
-	@FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'Select Dropdown List')]")
-	private WebElement subTabSelectDropDownList;
+    @FindBy(xpath = "//ul[@class='dropdown-menu']//a[contains(text(),'Select Dropdown List')]")
+    private WebElement subTabSelectDropDownList;
 
-	@FindBy(xpath = "//div[contains(text(),'Multi Select List Demo')]")
-	private WebElement SelectDropDownListText;
+    @FindBy(xpath = "//div[contains(text(),'Multi Select List Demo')]")
+    private WebElement selectDropDownListText;
 
-	public void clickonSubtabSelectDropDown() {
+    /**
+     * Click on subtab.
+     *
+     * @author sudheer.singh
+     */
+    public void clickonSubtabSelectDropDown() {
 
-		WebDriverFactory.clickWebElement(subTabSelectDropDownList);
+        WebDriverFactory.clickWebElement(subTabSelectDropDownList);
 
-	}
+    }
 
-	public void verifySelectDropDownListPage() {
-		
-		String SelectDropDownListTextGet = SelectDropDownListText.getText();
-		System.out.println(SelectDropDownListTextGet);
-		if(SelectDropDownListTextGet.equalsIgnoreCase("Multi Select List Demo")) {
-			
-			System.out.println(" you are on Select Dropdown page");
-		}
-	}
+    /**
+     * verifySelectDropDownListPage.
+     *
+     * @author sudheer.singh
+     */
+    public void verifySelectDropDownListPage() {
+
+        String selectDropDownListTextGet = selectDropDownListText.getText();
+        System.out.println(selectDropDownListTextGet);
+        if (selectDropDownListTextGet.equalsIgnoreCase("Multi Select List Demo")) {
+
+            System.out.println(" you are on Select Dropdown page");
+        }
+    }
 }

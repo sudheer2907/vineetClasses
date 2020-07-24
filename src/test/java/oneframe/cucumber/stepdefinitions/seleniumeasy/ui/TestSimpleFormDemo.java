@@ -23,18 +23,19 @@ public class TestSimpleFormDemo {
 
     @And("^I click on tab Input Forms$")
     public void i_click_on_tab_Input_Forms() {
-    	simpleFormDemoPage.clickOntab();
-    	
+        simpleFormDemoPage.clickOntab();
+
     }
+
     @Then("^I click on subtab Simple From Demo$")
-    public void i_click_on_subtab_Simple_From_Demo()  {
-    	simpleFormDemoPage = new SimpleFormDemoPage();
-    	simpleFormDemoPage.clickOnSubtab();
-      
+    public void i_click_on_subtab_Simple_From_Demo() {
+        simpleFormDemoPage = new SimpleFormDemoPage();
+        simpleFormDemoPage.clickOnSubtab();
+
     }
 
     @Then("^I verify Simple From Demo page$")
-    public void i_verify_Simple_From_Demo_page()  {
-    	simpleFormDemoPage.VerifySmimpleDemoPage();
+    public void i_verify_Simple_From_Demo_page() {
+        simpleFormDemoPage.VerifySmimpleDemoPage();
     }
 }
