@@ -22,6 +22,12 @@ public class CheckboxDemoPgae {
     @FindBy(xpath = "//div[contains(text(),'Single Checkbox Demo')]")
     private WebElement chekcboxPageText;
 
+    @FindBy(id = "isAgeSelected")
+    private WebElement singleCheckBox;
+
+    @FindBy(className = "cb1-element")
+    private WebElement option1CheckBox;
+
     public void clickonCheckboxSubTab() {
 
         WebDriverFactory.clickWebElement(subTabCheckBoxDemo);
@@ -32,4 +38,22 @@ public class CheckboxDemoPgae {
         System.out.println(checkboxPageTextToVerify);
     }
 
+    public void clickOnSingleCheckbox() {
+        WebDriverFactory.clickWebElement(singleCheckBox);
+
+    }
+
+    public boolean verifySingleCheckboxIsSelected() {
+
+        singleCheckBox.isSelected();
+        return true ;
+    }
+
+    public void clickOnOption1() {
+
+    }
+
+    public void clickOnOption4() {
+
+    }
 }
