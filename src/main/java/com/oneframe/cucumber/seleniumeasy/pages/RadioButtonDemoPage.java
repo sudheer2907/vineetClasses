@@ -21,7 +21,7 @@ public class RadioButtonDemoPage {
     private WebElement dropdownPageText;
 
     @FindBy(xpath = "//input[@value='Male']")
-    private WebElement MaleInRadioButtonSection;
+    private WebElement maleInRadioButtonSection;
 
     @FindBy(xpath = "//button[@id='buttoncheck']")
     private WebElement getValueCheck;
@@ -29,17 +29,17 @@ public class RadioButtonDemoPage {
     private WebElement messageByGetValueCheck;
 
     @FindBy(xpath = "//html//body//div//div//div//div//div//div//label[contains(text(),'Female')]//input\r\n" + "")
-    private WebElement FemaleFromGroupRadioButton;
-    
-    @FindBy(xpath ="//label[contains(text(),'15 to 50')]")
-    private WebElement ClickOn15to50AgeGroup;
-    
-    @FindBy(xpath="//button[contains(text(),'Get values')]")
+    private WebElement femaleFromGroupRadioButton;
+
+    @FindBy(xpath = "//label[contains(text(),'15 to 50')]")
+    private WebElement clickOn15to50AgeGroup;
+
+    @FindBy(xpath = "//button[contains(text(),'Get values')]")
     private WebElement getValue;
-    
-    @FindBy(xpath="//p[@class='groupradiobutton']")
-    private WebElement GetValuetext;
-    
+
+    @FindBy(xpath = "//p[@class='groupradiobutton']")
+    private WebElement getValuetext;
+
     /**
      * jljljl.
      */
@@ -49,32 +49,48 @@ public class RadioButtonDemoPage {
 
     /**
      * kljlkjkl.
-     * 
-     * @return - page name
+     *
+     * @return - pageNameStr
      */
     public String getPageText() {
         String pageNameStr = dropdownPageText.getText();
         return pageNameStr;
     }
+
     public void clickOnMale() {
-        WebDriverFactory.clickWebElement(MaleInRadioButtonSection);
+        WebDriverFactory.clickWebElement(maleInRadioButtonSection);
     }
+
+    /**
+     * Read get check value mgs.
+     *
+     * @return fetchMsg
+     */
     public String getCheckValueMsg() {
         WebDriverFactory.clickWebElement(getValueCheck);
-        String fetchMsg= messageByGetValueCheck.getText();
+        String fetchMsg = messageByGetValueCheck.getText();
         return fetchMsg;
     }
+
     public void clickFemaleInGroupRadioButton() {
-        WebDriverFactory.clickWebElement(FemaleFromGroupRadioButton);
-        
+        WebDriverFactory.clickWebElement(femaleFromGroupRadioButton);
+
     }
+
     public void clickon15to60() {
-        WebDriverFactory.clickWebElement(ClickOn15to50AgeGroup);
+        WebDriverFactory.clickWebElement(clickOn15to50AgeGroup);
     }
+
+    /**
+     * Verify group radio button section.
+     *
+     * @return - getValueText
+     */
+
     public String verifyGroupRadioButtonSection() {
         WebDriverFactory.clickWebElement(getValue);
-        String getValueText=GetValuetext.getText();
+        String getValueText = getValuetext.getText();
         return getValueText;
-        
+
     }
 }

@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.oneframe.cucumber.oneframebase.utils.LogPrinter;
 import com.oneframe.cucumber.oneframebase.utils.WebDriverFactory;
+
 
 public class CheckboxDemoPgae {
 
@@ -31,10 +31,9 @@ public class CheckboxDemoPgae {
 
     @FindBy(xpath = "//label[text()='Option 4']")
     private WebElement option_4;
-    
+
     @FindBy(xpath = "//label[text()='Option 2']")
     private WebElement option_2;
-    
 
     public void clickonCheckboxSubTab() {
 
@@ -43,7 +42,7 @@ public class CheckboxDemoPgae {
 
     /**
      * This method will give you the page name.
-     * 
+     *
      * @return - page name.
      * @author vineet.
      */
@@ -55,7 +54,7 @@ public class CheckboxDemoPgae {
 
     /**
      * Click on single checkbox button.
-     * 
+     *
      * @author MANISH KUMAR
      */
     public void clickOnSingleCheckbox() {
@@ -81,10 +80,10 @@ public class CheckboxDemoPgae {
         WebDriverFactory.clickWebElement(option_4);
 
     }
-public boolean verifyOption1AndOption4IsClicked() {
-    
-    boolean bi =option_1.isSelected()&&option_4.isSelected();
-    return true ;
+
+    public boolean verifyOption1AndOption4IsClicked() {
+
+        boolean bi = option_1.isSelected() && option_4.isSelected();
+        return true;
     }
 }
-
