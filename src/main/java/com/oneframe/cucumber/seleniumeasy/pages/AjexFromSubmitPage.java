@@ -17,6 +17,16 @@ public class AjexFromSubmitPage {
     @FindBy(xpath = "//div[contains(text(),'Ajax Form')]")
     private WebElement ajaxFormSubmitText;
 
+    @FindBy(xpath = "//input[@id='title']")
+    private WebElement name;
+
+    @FindBy(xpath = "//textarea[@id='description']")
+    private WebElement fillcomment;
+    @FindBy(xpath = "//input[@id='btn-submit']")
+    private WebElement submitbutton;
+    @FindBy(xpath = "//div[@id='submit-control']")
+    private WebElement getmsg;
+
     public void clickOnSubTabAjaxFromSubmit() {
         WebDriverFactory.clickWebElement(subTabAjaxFormSubmit);
     }
@@ -34,4 +44,30 @@ public class AjexFromSubmitPage {
 
         }
     }
+
+    public void enterName() {
+        WebDriverFactory.sendKeys(name, "Vineet");
+
+    }
+
+    public void enterComment() {
+        WebDriverFactory.sendKeys(fillcomment, "I have no specfic comment");
+    }
+
+    public void clickOnSubmit() {
+        WebDriverFactory.clickWebElement(submitbutton);
+    }
+
+    /**
+     * verifyAfterClickingOnSubmitButton.
+     *
+     * @author vineet
+     */
+
+    public void verifyAfterSubmit() throws InterruptedException {
+        Thread.sleep(5000);
+        String fetchMsg = getmsg.getText();
+        System.out.println(fetchMsg);
+    }
+
 }

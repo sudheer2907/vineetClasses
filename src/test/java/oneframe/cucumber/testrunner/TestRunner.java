@@ -20,7 +20,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 
 @CucumberOptions(monochrome = true, features = "src//test//resources//features//seleniumeasy", glue = "oneframe.cucumber.stepdefinitions", plugin = {
         "pretty", "io.qameta.allure.cucumberjvm.AllureCucumberJvm", "html:target/test-report/cucumber",
-        "json:target/test-report/cucumber.json" }, tags = { "@Test_RadioButtonPage" })
+        "json:target/test-report/cucumber.json" }, tags = { "@SelectDroupDown" })
 public class TestRunner {
     private TestNGCucumberRunner testNGCucumberRunner;
     private static String scenarioName = null;

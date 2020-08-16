@@ -11,7 +11,7 @@ Feature: Test DroupDown List Page
     Given I launch and login to the application
     And I click on tab Input Forms
     And I click on subtab Select dropdown List
-    And I selected select Friday
+    And I selected Friday
     Then I verify Friday is selected
 
   Scenario: Verify Multi Select List  Demo Sectio

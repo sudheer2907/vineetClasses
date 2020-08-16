@@ -7,7 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.oneframe.cucumber.oneframebase.utils.WebDriverFactory;
 
-
 public class CheckboxDemoPgae {
 
     WebDriver driver;
@@ -27,13 +26,13 @@ public class CheckboxDemoPgae {
     private WebElement singleCheckBox;
 
     @FindBy(xpath = "//label[text()='Option 1']")
-    private WebElement option_1;
+    private WebElement option1st;
 
     @FindBy(xpath = "//label[text()='Option 4']")
-    private WebElement option_4;
+    private WebElement option4th;
 
     @FindBy(xpath = "//label[text()='Option 2']")
-    private WebElement option_2;
+    private WebElement option2nd;
 
     public void clickonCheckboxSubTab() {
 
@@ -64,7 +63,7 @@ public class CheckboxDemoPgae {
 
     /**
      * Verify single checkbox button is selected.
-     * 
+     *
      * @return - true or false
      */
     public boolean isSingleCheckBoxButtonIsSelected() {
@@ -76,14 +75,19 @@ public class CheckboxDemoPgae {
      */
 
     public void clickOnOption1AndOption4() {
-        WebDriverFactory.clickWebElement(option_2);
-        WebDriverFactory.clickWebElement(option_4);
+        WebDriverFactory.clickWebElement(option2nd);
+        WebDriverFactory.clickWebElement(option4th);
 
     }
 
+    /**
+     * verifyOption1AndOption4IsClicked.
+     *
+     * @author sudheer.singh
+     */
     public boolean verifyOption1AndOption4IsClicked() {
 
-        boolean bi = option_1.isSelected() && option_4.isSelected();
+        boolean bool = option1st.isSelected() && option4th.isSelected();
         return true;
     }
 }

@@ -21,7 +21,8 @@ public class TestRadioButtonpage {
     @Then("^I verify Radio Buttons Demo Page is opened successfully$")
     public void i_verify_Buttons_Demo_Page() throws Throwable {
         String pageNameFetched = radioButtonDemoPage.getPageText();
-        Assert.assertFalse(pageNameFetched.equalsIgnoreCase("Radio Button Demo"),"hi .....");
+      //  Assert.assertFalse(pageNameFetched.equalsIgnoreCase("Radio Button Demo"),"hi .....");
+        Assert.assertTrue(pageNameFetched.equalsIgnoreCase("Radio Button Demo"),"page open");
     }
 
 @Given("^I click Male radio Button$")
@@ -34,7 +35,7 @@ public void i_click_Male_radio_Button() throws Throwable {
 @Then("^verify Male radio button is clicked$")
 public void verify_Male_radio_button_is_clicked() throws Throwable {
    String fetchMsg= radioButtonDemoPage.getCheckValueMsg();
-   Assert.assertEquals(fetchMsg, "Radio button 'Male' is checked", "Male Radio button is clicked");
+   Assert.assertEquals(fetchMsg, "Radio button 'Male' is checked", "Male Radio button is clicked succesfully");
 }
 
 @Given("^I click on sex Female radio button and Age group (\\d+)to(\\d+)$")

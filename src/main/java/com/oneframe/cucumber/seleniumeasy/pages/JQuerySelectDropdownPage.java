@@ -17,6 +17,10 @@ public class JQuerySelectDropdownPage {
     @FindBy(xpath = "//h3[contains(text(),'Drop Down with Search box')]")
     private WebElement jquerySelectDropdownText;
 
+    @FindBy(xpath = "//span[@class='select2 select2-container select2-container--default select2-container--focus']"
+            + "//span[@class='select2-selection select2-selection--single']")
+    private WebElement selectCountry;
+
     public void clickOnsubTabJQuerySelectDropdown() {
         WebDriverFactory.clickWebElement(subTabJQuerySelectDropdown);
     }
@@ -33,4 +37,10 @@ public class JQuerySelectDropdownPage {
             System.out.println("you are on JQuery Select Dropdown Page");
         }
     }
+
+    public void selectCountry() {
+        WebDriverFactory.selectElementByvalue(selectCountry, "India");
+
+    }
+
 }
